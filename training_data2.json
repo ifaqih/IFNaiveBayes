@@ -1,0 +1,127 @@
+{
+  "TI": [
+    {
+      "mtk": 2,
+      "fisika": 1,
+      "b.inggris": 2,
+      "psikotes": 2,
+      "interest": 0
+    },
+    {
+      "mtk": 2,
+      "fisika": 0,
+      "b.inggris": 1,
+      "psikotes": 0,
+      "interest": 0
+    },
+    {
+      "mtk": 1,
+      "fisika": 0,
+      "b.inggris": 2,
+      "psikotes": 0,
+      "interest": 1
+    },
+    {
+      "mtk": 1,
+      "fisika": 0,
+      "b.inggris": 1,
+      "psikotes": 1,
+      "interest": 0
+    },
+    {
+      "mtk": 2,
+      "fisika": 2,
+      "b.inggris": 2,
+      "psikotes": 1,
+      "interest": 0
+    },
+    {
+      "mtk": 1,
+      "fisika": 2,
+      "b.inggris": 0,
+      "psikotes": 0,
+      "interest": 0
+    }
+  ],
+  "TM": [
+    {
+      "mtk": 2,
+      "fisika": 1,
+      "b.inggris": 0,
+      "psikotes": 1,
+      "interest": 0
+    },
+    {
+      "mtk": 1,
+      "fisika": 1,
+      "b.inggris": 2,
+      "psikotes": 2,
+      "interest": 1
+    },
+    {
+      "mtk": 2,
+      "fisika": 2,
+      "b.inggris": 0,
+      "psikotes": 2,
+      "interest": 1
+    },
+    {
+      "mtk": 0,
+      "fisika": 1,
+      "b.inggris": 0,
+      "psikotes": 1,
+      "interest": 0
+    },
+    {
+      "mtk": 0,
+      "fisika": 0,
+      "b.inggris": 0,
+      "psikotes": 0,
+      "interest": 1
+    },
+    {
+      "mtk": 0,
+      "fisika": 2,
+      "b.inggris": 1,
+      "psikotes": 1,
+      "interest": 2
+    }
+  ],
+  "TP": [
+    {
+      "mtk": 1,
+      "fisika": 2,
+      "b.inggris": 1,
+      "psikotes": 1,
+      "interest": 2
+    },
+    {
+      "mtk": 0,
+      "fisika": 1,
+      "b.inggris": 2,
+      "psikotes": 2,
+      "interest": 0
+    },
+    {
+      "mtk": 2,
+      "fisika": 1,
+      "b.inggris": 0,
+      "psikotes": 2,
+      "interest": 0
+    },
+    {
+      "mtk": 0,
+      "fisika": 0,
+      "b.inggris": 1,
+      "psikotes": 1,
+      "interest": 2
+    },
+    {
+      "mtk": 1,
+      "fisika": 0,
+      "b.inggris": 0,
+      "psikotes": 0,
+      "interest": 2
+    }
+  ]
+}

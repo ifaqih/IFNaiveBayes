@@ -1,0 +1,138 @@
+[
+  {
+    "mtk": 2,
+    "fisika": 1,
+    "b.inggris": 2,
+    "psikotes": 2,
+    "interest": 0,
+    "label": "TI"
+  },
+  {
+    "mtk": 2,
+    "fisika": 0,
+    "b.inggris": 1,
+    "psikotes": 0,
+    "interest": 0,
+    "label": "TI"
+  },
+  {
+    "mtk": 2,
+    "fisika": 1,
+    "b.inggris": 0,
+    "psikotes": 1,
+    "interest": 0,
+    "label": "TM"
+  },
+  {
+    "mtk": 1,
+    "fisika": 2,
+    "b.inggris": 1,
+    "psikotes": 1,
+    "interest": 2,
+    "label": "TP"
+  },
+  {
+    "mtk": 1,
+    "fisika": 0,
+    "b.inggris": 2,
+    "psikotes": 0,
+    "interest": 1,
+    "label": "TI"
+  },
+  {
+    "mtk": 0,
+    "fisika": 1,
+    "b.inggris": 2,
+    "psikotes": 2,
+    "interest": 0,
+    "label": "TP"
+  },
+  {
+    "mtk": 1,
+    "fisika": 1,
+    "b.inggris": 2,
+    "psikotes": 2,
+    "interest": 1,
+    "label": "TM"
+  },
+  {
+    "mtk": 2,
+    "fisika": 2,
+    "b.inggris": 0,
+    "psikotes": 2,
+    "interest": 1,
+    "label": "TM"
+  },
+  {
+    "mtk": 2,
+    "fisika": 1,
+    "b.inggris": 0,
+    "psikotes": 2,
+    "interest": 0,
+    "label": "TP"
+  },
+  {
+    "mtk": 1,
+    "fisika": 0,
+    "b.inggris": 1,
+    "psikotes": 1,
+    "interest": 0,
+    "label": "TI"
+  },
+  {
+    "mtk": 2,
+    "fisika": 2,
+    "b.inggris": 2,
+    "psikotes": 1,
+    "interest": 0,
+    "label": "TI"
+  },
+  {
+    "mtk": 0,
+    "fisika": 1,
+    "b.inggris": 0,
+    "psikotes": 1,
+    "interest": 0,
+    "label": "TM"
+  },
+  {
+    "mtk": 0,
+    "fisika": 0,
+    "b.inggris": 1,
+    "psikotes": 1,
+    "interest": 2,
+    "label": "TP"
+  },
+  {
+    "mtk": 1,
+    "fisika": 0,
+    "b.inggris": 0,
+    "psikotes": 0,
+    "interest": 2,
+    "label": "TP"
+  },
+  {
+    "mtk": 0,
+    "fisika": 0,
+    "b.inggris": 0,
+    "psikotes": 0,
+    "interest": 1,
+    "label": "TM"
+  },
+  {
+    "mtk": 0,
+    "fisika": 2,
+    "b.inggris": 1,
+    "psikotes": 1,
+    "interest": 2,
+    "label": "TM"
+  },
+  {
+    "mtk": 1,
+    "fisika": 2,
+    "b.inggris": 0,
+    "psikotes": 0,
+    "interest": 0,
+    "label": "TI"
+  }
+]
