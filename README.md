@@ -166,7 +166,7 @@ class::clear()
 Number of training data = 100000
 
 ```ruby
-Example 1:
+Example Prototype 1:
 
 array(5) {
   ["result"]=>
@@ -189,7 +189,7 @@ array(5) {
 }
 
 
-Example 2:
+Example Prototype 2:
 
 array(5) {
   ["result"]=>
@@ -212,7 +212,7 @@ array(5) {
 }
 
 
-Example 3:
+Example Prototype 3:
 
 array(5) {
   ["result"]=>
