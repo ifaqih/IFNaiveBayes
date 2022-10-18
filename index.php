@@ -5,7 +5,7 @@ use AI\IFNaiveBayes as NB;
 
 /*
 | ===================================================================
-|  EXAMPLE 1
+|  EXAMPLE PROTOTYPE 1
 | ===================================================================
 | Set data by method
 */
@@ -25,7 +25,7 @@ NB::set_training_data($training_data, NB_BY_ROWS, $key_label);
 $start = microtime(true);
 NB::process();
 $end = microtime(true);
-echo "Example 1";
+echo "Example Prototype 1";
 echo "<pre>";
 var_dump([
     'result'    =>  NB::get_result(),
@@ -39,7 +39,7 @@ NB::clear();
 
 /*
 | ===================================================================
-|  EXAMPLE 2
+|  EXAMPLE PROTOTYPE 2
 | ===================================================================
 | Set data by parameters
 */
@@ -51,7 +51,7 @@ $key_label = null;
 $start = microtime(true);
 NB::process($data, $training_data2, NB_BY_GROUP_LABEL, $key_label, $boolean_returned, $clear_after_process);
 $end = microtime(true);
-echo "Example 2";
+echo "Example Prototype 2";
 echo "<pre>";
 var_dump([
     'result'        =>  NB::get_result(),
@@ -65,7 +65,7 @@ NB::clear();
 
 /*
 | ===================================================================
-|  EXAMPLE 3
+|  EXAMPLE PROTOTYPE 3
 | ===================================================================
 | Set training data based on number of attributes and number of labels
 */
@@ -106,7 +106,7 @@ NB::set_data($data);
 $start = microtime(true);
 NB::process();
 $end = microtime(true);
-echo "Example 3";
+echo "Example Prototype 3";
 echo "<pre>";
 var_dump([
     'result'        =>  NB::get_result(),
