@@ -4,21 +4,17 @@ namespace AI;
 
 use Throwable;
 
-/*
-| ===================================================================
-|  Naive Bayes Classifier
-| ===================================================================
-| Naive Bayes classifier (NBC) is a machine learning method that 
-| utilizes probability and statistical calculations proposed by 
-| British scientist Thomas Bayes, which predicts future probabilities 
-| based on past experience.
-|
-*/
+if (!defined('NB_BY_ROWS') && !defined('NB_BY_GROUP_LABEL') && !defined('NB_BY_NUMBER')) {
+    define('NB_BY_ROWS', 0);
+    define('NB_BY_GROUP_LABEL', 1);
+    define('NB_BY_NUMBER', 2);
+}
 
 class IFNaiveBayes
 {
     protected static $data;
     protected static $training_data;
+    protected static $training_type;
     protected static $key_label = 'label';
     protected static $result_point = NULL;
     protected static $result = NULL;
@@ -29,10 +25,11 @@ class IFNaiveBayes
         return;
     }
 
-    public static function set_training_data(array|object $data, string $key_label = 'label'): void
+    public static function set_training_data(array|object $data, int $type_training_data = 0, string $key_label = null): void
     {
         static::$training_data = (array) $data;
-        static::$key_label = $key_label;
+        static::$training_type = $type_training_data;
+        static::$key_label = !empty($key_label) ? $key_label : static::$key_label;
         return;
     }
 
@@ -47,19 +44,30 @@ class IFNaiveBayes
         return empty($label) ? $point : (isset($point->$label) ? $point->$label : NULL);
     }
 
-    public static function process(?array $data = null, array|object|null $training_data = null, ?string $key_label = null, bool $boolean_returned = true, bool $clear_after = false): string|bool|null
+    public static function process(?array $data = null, array|object|null $training_data = null, int|null $type_training_data = null, ?string $key_label = null, bool $boolean_returned = true, bool $clear_after = false): string|bool|null
     {
         try {
+
+            if (!empty($type_training_data) || !empty(static::$training_type)) {
+                static::$training_type = !empty($type_training_data) ? $type_training_data : static::$training_type;
+                unset($type_training_data);
+            } else {
+                $return = NULL;
+            }
 
             if (!empty(static::$result_point) && !empty(static::$result)) {
                 return $boolean_returned ? TRUE : static::$result;
             }
 
-            if (!empty($data) || !empty(static::$data)) {
-                static::$data = !empty($data) ? $data : static::$data;
-                unset($data);
+            if (static::$training_type !== 2) {
+                if (!empty($data) || !empty(static::$data)) {
+                    static::$data = !empty($data) ? $data : static::$data;
+                    unset($data);
+                } else {
+                    $return = NULL;
+                }
             } else {
-                $return = NULL;
+                static::$data = [];
             }
 
             if (!empty($key_label) || !empty(static::$key_label)) {
@@ -77,10 +85,9 @@ class IFNaiveBayes
             }
 
             if (!isset($return)) {
-                if ((count(static::$data) > 0) && (count((array) static::$training_data) > 0)) {
-                    $training_type = self::dc();
-                    if (in_array($training_type, [2, 3])) {
-                        $nb = self::nb(static::$data, $training_type);
+                if (((static::$training_type !== 2 && count(static::$data) > 0) || (static::$training_type == 2 && count(static::$data) == 0)) && (count((array) static::$training_data) > 0)) {
+                    if (in_array(static::$training_type, [0, 1, 2])) {
+                        $nb = self::nb(static::$data, static::$training_type);
                         if ($clear_after) {
                             self::clear();
                         } else {
@@ -94,6 +101,8 @@ class IFNaiveBayes
                 } else {
                     $return = NULL;
                 }
+            } else {
+                self::clear();
             }
 
             return $return;
@@ -108,10 +117,10 @@ class IFNaiveBayes
         $sample = [];
         $b = [];
         $n_label = [];
-        $name_atribut = array_keys($data);
+        $name_atribut = (count(static::$data) > 0) ? array_keys($data) : [];
 
         switch ($training_type) {
-            case 2:
+            case 0:
                 $c_training = count(static::$training_data);
                 $c_label = array_count_values(array_column(static::$training_data, static::$key_label));
 
@@ -125,15 +134,24 @@ class IFNaiveBayes
                         }
                     }
                 }
-
                 break;
-            case 3:
+            case 1:
                 foreach (static::$training_data as $key => $value) {
                     $c_label[$key] = count($value);
                     foreach ($name_atribut as $k => $v) {
                         $cv = array_count_values(array_column($value, $v));
                         $sample[$key][$v] = isset($cv[$data[$v]]) ? $cv[$data[$v]] : 0;
                     }
+                }
+                $c_training = array_sum($c_label);
+                break;
+            case 2:
+                foreach (static::$training_data as $key => $value) {
+                    $value = (array) $value;
+                    $c_label[$key] = $value['total'];
+                    $sample[$key] = $value['attributes'];
+                    $atribut_key = array_keys($value['attributes']);
+                    $name_atribut = (count($name_atribut) < count($atribut_key)) ? $atribut_key : $name_atribut;
                 }
                 $c_training = array_sum($c_label);
                 break;
@@ -144,7 +162,6 @@ class IFNaiveBayes
                 ];
                 break;
         }
-
         foreach (array_keys($c_label) as $key => $value) {
             if (isset($sample[$value])) {
                 foreach ($name_atribut as $k => $v) {
@@ -168,19 +185,13 @@ class IFNaiveBayes
         ];
     }
 
-    private static function dc(array|object $array = null): ?int
-    {
-        $array = !empty($array) ? $array : static::$training_data;
-        foreach ($array as $value) {
-            return (is_array($value) || is_object($value)) ? self::dc($value) + 1 : 1;
-        }
-    }
-
     public static function clear(): void
     {
         static::$key_label = 'label';
+        static::$training_type = NULL;
         static::$training_data = NULL;
         static::$result_point = NULL;
+        static::$result = NULL;
         return;
     }
 }

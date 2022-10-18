@@ -21,9 +21,9 @@ class::set_data()
 
 ```ruby
 $data = [
-    "attribute 1"   =>  value 1,
-    "attribute 2"   =>  value 2,
-    "attribute 3"   =>  value 3
+    "attribute name"   =>  value,
+    "attribute name"   =>  value,
+    "attribute name"   =>  value
 ]
 ```
 
@@ -41,7 +41,7 @@ class::set_training_data()
 ```
 
 - Type: static
-- Parameter data type: `array|object $data, string $key_label = 'label'`
+- Parameter data type: `array|object $data, int $type_training_data = 0, ?string $key_label = null`
 - Return data type: `void`
 
 ### Prototype 1:
@@ -49,12 +49,16 @@ class::set_training_data()
 ```ruby
 $data = [
     [
-        "attribute 1"   =>  value,
-        "attribute 2"   =>  value,
-        "attribute 3"   =>  value,
-        "label"         =>  value
+        "attribute name"   =>  value,
+        "attribute name"   =>  value,
+        "attribute name"   =>  value,
+        "label"            =>  value
     ]
-]
+];
+
+$type_training_data = 0;
+or
+$type_training_data = NB_BY_ROWS;
 ```
 
 ### Prototype 2:
@@ -63,18 +67,44 @@ $data = [
 $data = [
     "label" =>  [
         [
-            "attribute 1"   =>  value,
-            "attribute 2"   =>  value,
-            "attribute 3"   =>  value
+            "attribute name"   =>  value,
+            "attribute name"   =>  value,
+            "attribute name"   =>  value
         ]
     ]
-]
+];
+
+$type_training_data = 1;
+or
+$type_training_data = NB_BY_GROUP_LABEL;
+```
+
+### Prototype 3:
+
+Set training data based on number of attributes and number of labels.
+If using this prototype does not require data input (in the set_data() method) and will skip the attribute calculation stage, because it is assumed to have performed attribute calculations manually.
+
+```ruby
+$data = [
+    "label" =>  [
+        "attributes"    =>  [
+            "attribute name"   =>  number of attributes on the label,
+            "attribute name"   =>  number of attributes on the label,
+            "attribute name"   =>  number of attributes on the label
+        ],
+        "total"         =>  number of labels
+    ]
+];
+
+$type_training_data = 1;
+or
+$type_training_data = NB_BY_NUMBER;
 ```
 
 info:
 
 - label: something that represents the group name
-- attribute: parameters to be calculated in the classification process
+- attribute name: parameters to be calculated in the classification process
 - "$key_label" parameter is not needed when using the second prototype
 
 ## Process Method
@@ -86,7 +116,7 @@ class::process()
 ```
 
 - Type: static
-- Parameter data type: `?array $data = null, array|object|null $training_data = null, ?string $key_label = null, bool $boolean_returned = true, bool $clear_after = false`
+- Parameter data type: `?array $data = null, array|object|null $training_data = null, int $type_training_data = 0, ?string $key_label = null, bool $boolean_returned = true, bool $clear_after = false`
 - Return data type: `string|bool|null`
 
 info:
@@ -130,3 +160,77 @@ class::clear()
 - Type: static
 - Parameter data type: not needed
 - Return data type: `void`
+
+## Test Results
+
+Number of training data = 100000
+
+```ruby
+Example 1:
+
+array(5) {
+  ["result"]=>
+  string(2) "TI"
+  ["point"]=>
+  object(stdClass)(3) {
+    ["TI"]=>
+    float(0.0020101198329071602)
+    ["TM"]=>
+    float(0.00048783922881731547)
+    ["TP"]=>
+    float(0.0011221592061979964)
+  }
+  ["start_at"]=>
+  float(1666072755.080761)
+  ["end_at"]=>
+  float(1666072755.145308)
+  ["execution_time"]=>
+  float(0.06454706192016602)
+}
+
+
+Example 2:
+
+array(5) {
+  ["result"]=>
+  string(2) "TI"
+  ["point"]=>
+  object(stdClass)(3) {
+    ["TI"]=>
+    float(0.0020101198329071602)
+    ["TM"]=>
+    float(0.00048783922881731547)
+    ["TP"]=>
+    float(0.0011221592061979964)
+  }
+  ["start_at"]=>
+  float(1666072755.27086)
+  ["end_at"]=>
+  float(1666072755.291312)
+  ["execution_time"]=>
+  float(0.020452022552490234)
+}
+
+
+Example 3:
+
+array(5) {
+  ["result"]=>
+  string(2) "TI"
+  ["point"]=>
+  object(stdClass)(3) {
+    ["TI"]=>
+    float(0.0020101198329071602)
+    ["TM"]=>
+    float(0.00048783922881731547)
+    ["TP"]=>
+    float(0.0011221592061979964)
+  }
+  ["start_at"]=>
+  float(1666072755.291341)
+  ["end_at"]=>
+  float(1666072755.29135)
+  ["execution_time"]=>
+  float(8.821487426757812E-6)
+}
+```
