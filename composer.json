@@ -1,11 +1,11 @@
 {
-  "name": "ifaqih/aimethods",
+  "name": "ifaqih/ifnaivebayes",
   "description": "Naive Bayes library for PHP",
   "type": "library",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Ifaqih\\Aimethods\\": "src/"
+      "Ifaqih\\Ifnaivebayes\\": "src/"
     }
   },
   "authors": [
