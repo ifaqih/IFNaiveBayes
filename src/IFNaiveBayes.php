@@ -1,6 +1,6 @@
 <?php
 
-namespace ifaqih\AIMethods;
+namespace Ifaqih\Aimethods;
 
 use Throwable;
 
