@@ -6,12 +6,7 @@
   "autoload": {
     "psr-4": {
       "Ifaqih\\AIMethods\\": "src/"
-    },
-    "classmap": [
-      "ifaqih/ifnaivebayes/IFNaiveBayes.php",
-      "classes/"
-    ],
-    "exclude-from-classmap": []
+    }
   },
   "authors": [
     {
