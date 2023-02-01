@@ -8,7 +8,7 @@
       "Ifaqih\\AIMethods\\": "src/"
     },
     "classmap": [
-      "IFNaiveBayes.php",
+      "ifaqih/ifnaivebayes/IFNaiveBayes.php",
       "classes/"
     ],
     "exclude-from-classmap": []
