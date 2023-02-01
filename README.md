@@ -5,6 +5,14 @@ Naive Bayes classifier (NBC) is a machine learning method that utilizes probabil
 PHP Version: 8.0 or 8.1
 |-
 
+## Installation
+
+### With Composer:
+
+```ruby
+composer require ifaqih/ifnaivebayes
+```
+
 ## Set Data Method
 
 Method to set the data to be processed.
