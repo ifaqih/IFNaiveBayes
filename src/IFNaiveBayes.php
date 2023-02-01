@@ -1,6 +1,6 @@
 <?php
 
-namespace ifaqih\Ifnaivebayes;
+namespace ifaqih\AIMethods;
 
 use Throwable;
 
