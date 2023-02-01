@@ -1,6 +1,6 @@
 <?php
 
-namespace AI;
+namespace ifaqih\IfNaiveBayes;
 
 use Throwable;
 
@@ -10,7 +10,7 @@ if (!defined('NB_BY_ROWS') && !defined('NB_BY_GROUP_LABEL') && !defined('NB_BY_N
     define('NB_BY_NUMBER', 2);
 }
 
-class IFNaiveBayes
+class NaiveBayes
 {
     protected static $data;
     protected static $training_data;
