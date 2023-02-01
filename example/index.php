@@ -1,5 +1,5 @@
 <?php
-include('IFNaiveBayes.php');
+include('../src/IFNaiveBayes.php');
 
 use AI\IFNaiveBayes as NB;
 

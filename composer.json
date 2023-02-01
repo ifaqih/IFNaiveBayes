@@ -1,0 +1,19 @@
+{
+    "name": "ifaqih/if-naive-bayes",
+    "description": "Naive Bayes library for PHP",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ifaqih\\IfNaiveBayes\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ifaqih",
+            "email": "awah.if@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
