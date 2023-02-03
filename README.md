@@ -2,7 +2,7 @@
 
 Naive Bayes classifier (NBC) is a machine learning method that utilizes probability and statistical calculations proposed by British scientist Thomas Bayes, which predicts future probabilities based on past experience.
 
-PHP Version: 8.0 or 8.1
+PHP Version: 8.0 or above
 |-
 
 ## Installation
