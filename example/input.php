@@ -1,7 +1,7 @@
 <?php
-include('IFNaiveBayes.php');
+include('NaiveBayes.php');
 
-use AI\IFNaiveBayes as NB;
+use IFaqih\AIMethods\NaiveBayes as NB;
 
 $training_data2 = json_decode(file_get_contents('training_data2.json'));
 $success = 0;

@@ -1,7 +1,7 @@
 <?php
 include('../src/IFNaiveBayes.php');
 
-use Ifaqih\Ifnaivebayes\NaiveBayes as NB;
+use IFaqih\AIMethods\NaiveBayes as NB;
 
 /*
 | ===================================================================

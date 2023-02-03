@@ -18,7 +18,7 @@ composer require ifaqih/ifnaivebayes
 ### Namespace:
 
 ```ruby
-namespace Ifaqih\Ifnaivebayes;
+namespace IFaqih\AIMethods;
 ```
 
 ### Class Name:
