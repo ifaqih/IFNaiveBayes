@@ -13,6 +13,20 @@ PHP Version: 8.0 or 8.1
 composer require ifaqih/ifnaivebayes
 ```
 
+## Class
+
+### Namespace:
+
+```ruby
+namespace Ifaqih\Ifnaivebayes;
+```
+
+### Class Name:
+
+```ruby
+class NaiveBayes{}
+```
+
 ## Set Data Method
 
 Method to set the data to be processed.
