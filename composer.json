@@ -1,5 +1,5 @@
 {
-  "name": "ifaqih/ifnaivebayes",
+  "name": "ifaqih/aimethods/ifnaivebayes",
   "description": "Naive Bayes library for PHP",
   "type": "library",
   "license": "MIT",
@@ -17,6 +17,6 @@
   "minimum-stability": "stable",
   "version": "1.0",
   "require": {
-    "php": "^8.0"
+    "php": ">= 8.0"
   }
 }
